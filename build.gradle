@@ -6,15 +6,12 @@ group = 'bmr.calculator'
 version = '1.0'
 sourceCompatibility = '17'
 
-repositories {
-	mavenCentral()
-}
-
-dependencies {
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-}
-
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'bmr.calculator.Main'
+	}
 }
