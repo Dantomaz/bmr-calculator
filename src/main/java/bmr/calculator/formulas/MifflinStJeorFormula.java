@@ -6,7 +6,7 @@ import bmr.calculator.Printer;
 
 public class MifflinStJeorFormula implements FormulaCalculator {
 
-  private static final String NAME = "Mifflin-St Jeor Formula";
+  public static final String NAME = "Równanie Mifflin-St Jeor";
   private final Printer printer;
 
   public MifflinStJeorFormula(Printer printer) {

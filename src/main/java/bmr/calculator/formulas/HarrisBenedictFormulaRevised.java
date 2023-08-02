@@ -6,7 +6,7 @@ import bmr.calculator.Printer;
 
 public class HarrisBenedictFormulaRevised implements FormulaCalculator {
 
-  private static final String NAME = "Harris-Benedict formula revised by Roza and Shizgal";
+  public static final String NAME = "Równanie Harris-Benedict poprawione przez Roza i Shizgal";
   private final Printer printer;
 
   public HarrisBenedictFormulaRevised(Printer printer) {

@@ -21,18 +21,33 @@ public class Main {
 
     printer.welcomePrompt();
     printer.genderPrompt();
-    boolean isMale = scanner.nextLine().equalsIgnoreCase("y");
+    boolean isMale = scanner.nextLine().equalsIgnoreCase("tak");
     printer.weightPrompt();
     BigDecimal weightInKg = scanner.nextBigDecimal();
     printer.heightPrompt();
     BigDecimal heightInCm = scanner.nextBigDecimal();
     printer.agePrompt();
     BigDecimal ageInYears = scanner.nextBigDecimal();
+    printer.activityPrompt();
+    BigDecimal activity = scanner.nextBigDecimal();
 
-    printer.resultPrompt();
-    BigDecimal value1 = mifflinStJeorFormula.calculate(isMale, weightInKg, heightInCm, ageInYears);
-    BigDecimal value2 = harrisBenedictFormula.calculate(isMale, weightInKg, heightInCm, ageInYears);
-    BigDecimal value3 = harrisBenedictFormulaRevised.calculate(isMale, weightInKg, heightInCm, ageInYears);
-    averageCalculator.calculate(List.of(value1, value2, value3));
+    printer.bmrPrompt();
+    BigDecimal bmr1 = mifflinStJeorFormula.calculate(isMale, weightInKg, heightInCm, ageInYears);
+    BigDecimal bmr2 = harrisBenedictFormula.calculate(isMale, weightInKg, heightInCm, ageInYears);
+    BigDecimal bmr3 = harrisBenedictFormulaRevised.calculate(isMale, weightInKg, heightInCm, ageInYears);
+    averageCalculator.calculate(List.of(bmr1, bmr2, bmr3));
+
+    printer.dailyKcalPrompt();
+    BigDecimal dailyKcal1 = bmr1.multiply(activity);
+    BigDecimal dailyKcal2 = bmr2.multiply(activity);
+    BigDecimal dailyKcal3 = bmr3.multiply(activity);
+    printer.printKcal(MifflinStJeorFormula.NAME, dailyKcal1.toPlainString());
+    printer.printKcal(HarrisBenedictFormula.NAME, dailyKcal2.toPlainString());
+    printer.printKcal(HarrisBenedictFormulaRevised.NAME, dailyKcal3.toPlainString());
+    averageCalculator.calculate(List.of(dailyKcal1, dailyKcal2, dailyKcal3));
+
+    printer.exitPrompt();
+    scanner.nextLine();
+    scanner.nextLine();
   }
 }

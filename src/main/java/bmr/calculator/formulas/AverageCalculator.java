@@ -8,7 +8,7 @@ import bmr.calculator.Printer;
 
 public class AverageCalculator {
 
-  private final static String NAME = "Average";
+  private final static String NAME = "Średnio";
   private final Printer printer;
 
   public AverageCalculator(Printer printer) {
